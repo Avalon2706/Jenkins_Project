@@ -1,0 +1,13 @@
+pipeline {
+  agent any
+  stages {
+    stage('Install .NET') {
+      steps {
+        sh 'curl -sSL https://dot.net/v1/dotnet-install.sh -o dotnet-install.sh'
+        sh 'chmod +x dotnet-install.sh'
+        sh './dotnet-install.sh --channel LTS --install-dir $HOME/.dotnet'
+        sh 'export PATH=$HOME/.dotnet:$PATH && dotnet --info'
+      }
+    }
+  }
+}
