@@ -16,18 +16,19 @@ pipeline {
             }
         }
         stage('Deploy') {
-            input (
-                message 'Deploy?'
-                ok 'Do it!'
-                parameters [
-                    string (name: 'TARGET_ENVIRONMENT', defaultValue: 'PROD', description: 'Target deployment environment')
-                    string(name: 'RELEASE', defaultValue: 'PROD', description: 'Put Version of Release')])
             steps {
+                input (
+                    message 'Deploy?'
+                    ok 'Do it!'
+                    parameters [
+                        string (name: 'TARGET_ENVIRONMENT', defaultValue: 'PROD', description: 'Target deployment environment')
+                        string(name: 'RELEASE', defaultValue: 'PROD', description: 'Put Version of Release')])
+             
                 echo "Deploying release ${RELEASE} to environment ${TARGET_ENVIRONMENT}"
-            }
+            
         }        
     }
-    post{
+    post {
         always {
              echo 'Prints whether deploy happened or not, success or failure'
         }
