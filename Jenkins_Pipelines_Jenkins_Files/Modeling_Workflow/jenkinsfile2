@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             agent any
             environment {
-                LOG_LEVEL='INFO',
+                LOG_LEVEL='INFO'
                 RELEASE='1.0'
             }
             steps {
