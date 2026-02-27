@@ -22,18 +22,21 @@ pipeline {
                     message: 'Deploy?',
                     ok: 'Do it!',
                     parameters: [
-                        string (name: 'TARGET_ENVIRONMENT', defaultValue: 'PROD', description: 'Target deployment environment')
-                        string(name: 'RELEASE', defaultValue: 'PROD', description: 'Put Version of Release')]
+                        string (name: 'TARGET_ENVIRONMENT', defaultValue: 'PROD', description: 'Target deployment environment'),
+                        string(name: 'RELEASE', defaultValue: 'PROD', description: 'Put Version of Release')
+                        ]
                       )
 
                      echo "Deploying release ${ans.RELEASE} to environment ${ans.TARGET_ENVIRONMENT}"
             
         }        
     }
+}
+}
     post {
         always {
              echo 'Prints whether deploy happened or not, success or failure'
         }
     }
-}
 
+}
