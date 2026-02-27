@@ -19,8 +19,8 @@ pipeline {
             steps {
                 script {
                     def ans = input (
-                    message: 'Deploy?'
-                    ok: 'Do it!'
+                    message: 'Deploy?',
+                    ok: 'Do it!',
                     parameters [
                         string (name: 'TARGET_ENVIRONMENT', defaultValue: 'PROD', description: 'Target deployment environment')
                         string(name: 'RELEASE', defaultValue: 'PROD', description: 'Put Version of Release')]
