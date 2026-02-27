@@ -22,9 +22,11 @@ pipeline {
                     ok 'Do it!'
                     parameters [
                         string (name: 'TARGET_ENVIRONMENT', defaultValue: 'PROD', description: 'Target deployment environment')
-                        string(name: 'RELEASE', defaultValue: 'PROD', description: 'Put Version of Release')])
+                        string(name: 'RELEASE', defaultValue: 'PROD', description: 'Put Version of Release')]
+                      )
+
              
-                echo "Deploying release ${RELEASE} to environment ${TARGET_ENVIRONMENT}"
+                        echo "Deploying release ${RELEASE} to environment ${TARGET_ENVIRONMENT}"
             
         }        
     }
